@@ -49,7 +49,7 @@ Smart Course Search Engine is a web application that enables users to search for
 ## Block Diagram
 
 <p align="center">
-    <img src="https://i.imgur.com/EsBw0vy.png" alt="Block Diagram">
+    <img src="https://i.imgur.com/dRDD8N0.jpeg" alt="Block Diagram">
 </p>
 
 ---
