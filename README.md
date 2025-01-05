@@ -67,9 +67,14 @@ Smart Course Search Engine is a web application that enables users to search for
 +---------v---------------+
 |  Course Database (JSON) |
 +-------------------------+
-
-
 ```
 
-# Smart-Course-Search-Platform
-The Smart Course Search Platform is an advanced course recommendation system using vector database &amp; OpenAI's LLM to provide personalized suggestions. It features a responsive web UI with filters for level, rating, length, and price, displays rich course details, and includes a scraping script to fetch the latest courses.
+---
+
+## Updating the Course Database
+
+- **Dynamic Updates via Web Interface**:
+    A button on the web interface allows you to update the course database dynamically.
+    When clicked, it triggers the scrapebest.py script to scrape and refresh all_courses.json.
+- **Logging Updates**:
+    While the scraper is running, updates are printed in real-time on the CLI and the webpage for transparency.
