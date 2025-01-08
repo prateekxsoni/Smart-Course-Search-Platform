@@ -7,6 +7,9 @@ from langchain_community.vectorstores import FAISS
 from langchain.schema import SystemMessage, HumanMessage, Document
 from langchain.prompts import ChatPromptTemplate
 import subprocess
+import threading
+import time
+import requests
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -134,7 +137,21 @@ def update_courses():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+
+# Self-pinging functionality to keep the server running
+def self_ping():
+    """Function to keep the app awake by pinging itself."""
+    while True:
+        try:
+            url = "https://smart-course-search-platform.onrender.com/"
+            response = requests.get(url)
+            print(f"Self-ping status: {response.status_code}")
+        except Exception as e:
+            print(f"Error in self-ping: {e}")
+        time.sleep(600) 
+
+
 if __name__ == "__main__":
-    
+    threading.Thread(target=self_ping, daemon=True).start()
     port = int(os.environ.get("PORT", 5000))  
     app.run(host="0.0.0.0", port=port, debug=False)
